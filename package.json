@@ -2,11 +2,13 @@
   "name": "gun-chat",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://iqbalsalasturrahman322.github.io/Private-chat",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "express": "^5.2.1",
@@ -16,6 +18,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.2",
+    "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
   }
 }
