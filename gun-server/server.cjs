@@ -1,24 +1,23 @@
-const Gun = require("gun");
 const express = require("express");
+const http = require("http");
+const Gun = require("gun");
 
 const app = express();
+const server = http.createServer(app); // ← penting
 
-// ROOT RESPONSE DULU
 app.get("/", (req, res) => {
-  res.status(200).send("Gun relay is running 🚀");
+  res.send("Gun relay is running 🚀");
 });
 
-// Gun middleware setelah root
-app.use(Gun.serve);
-
-const port = process.env.PORT || 8765;
-
-const server = app.listen(port, () =>
-  console.log("Gun relay running on port " + port)
-);
-
-const gun = Gun({
+// attach gun ke http server (BUKAN app)
+Gun({
   web: server,
   file: "data",
   radisk: true,
+});
+
+const PORT = process.env.PORT || 8765;
+
+server.listen(PORT, () => {
+  console.log("Running on", PORT);
 });

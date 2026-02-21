@@ -6,7 +6,7 @@ import "gun/sea";
 import "gun/axe";
 
 const gun = Gun({
-  peers: ["http://localhost:8765/gun"], // ganti sesuai relay server kamu
+  peers: ["https://private-chat-production-0c71.up.railway.app/gun"],
   localStorage: false,
 });
 
