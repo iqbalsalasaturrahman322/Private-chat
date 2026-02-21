@@ -5,14 +5,14 @@ const Gun = require("gun");
 const app = express();
 const server = http.createServer(app);
 
+// ⭐ WAJIB: expose /gun endpoint
+app.use(Gun.serve);
+
 app.get("/", (req, res) => {
   res.send("Gun relay is running 🚀");
 });
 
-// ⛔ JANGAN pakai Gun.serve
-// app.use(Gun.serve);  ← HAPUS INI
-
-// ✅ attach gun langsung ke http server
+// ⭐ attach websocket
 Gun({
   web: server,
   file: "data",
