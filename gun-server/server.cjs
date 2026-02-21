@@ -5,6 +5,11 @@ const app = express();
 
 app.use(Gun.serve);
 
+// 🔥 TAMBAHKAN INI
+app.get("/", (req, res) => {
+  res.send("Gun relay is running 🚀");
+});
+
 const port = process.env.PORT || 8765;
 
 const server = app.listen(port, () =>
