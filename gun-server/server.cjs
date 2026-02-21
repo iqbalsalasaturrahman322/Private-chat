@@ -3,12 +3,13 @@ const express = require("express");
 
 const app = express();
 
-app.use(Gun.serve);
-
-// 🔥 TAMBAHKAN INI
+// ROOT RESPONSE DULU
 app.get("/", (req, res) => {
-  res.send("Gun relay is running 🚀");
+  res.status(200).send("Gun relay is running 🚀");
 });
+
+// Gun middleware setelah root
+app.use(Gun.serve);
 
 const port = process.env.PORT || 8765;
 
@@ -21,5 +22,3 @@ const gun = Gun({
   file: "data",
   radisk: true,
 });
-
-module.exports = { gun, server };
